@@ -20,10 +20,15 @@ import (
 	"testing"
 )
 
-func TestPost(t *testing.T) {
+func TestSetupRouter(t *testing.T) {
 	service, _, err := NewMockService()
 	if err != nil {
 		t.Errorf("failed to setup mock service: %s", err)
 	}
-	service.setRoutes()
+
+	service.postEventHandler()
+}
+
+func TestPost(t *testing.T) {
+
 }
