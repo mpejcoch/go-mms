@@ -26,7 +26,7 @@ func TestSetupRouter(t *testing.T) {
 		t.Errorf("failed to setup mock service: %s", err)
 	}
 
-	service.postEventHandler()
+	service.setRoutes()
 }
 
 func TestPost(t *testing.T) {

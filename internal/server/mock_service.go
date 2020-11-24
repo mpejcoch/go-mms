@@ -6,6 +6,7 @@ import (
 	"github.com/DATA-DOG/go-sqlmock"
 )
 
+// NewMockService creates the api service with a mocked SQL backend for caching
 func NewMockService() (*Service, sqlmock.Sqlmock, error) {
 	cacheDB, mock, err := sqlmock.New()
 	if err != nil {
