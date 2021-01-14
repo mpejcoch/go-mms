@@ -3,8 +3,10 @@
 /mmsd
 /libmms.*
 
-# Static files built into the binary
+# Generated files
 /pkg/statik
+cert.pem
+key.pem
 
 # VSCode
 /.vscode/

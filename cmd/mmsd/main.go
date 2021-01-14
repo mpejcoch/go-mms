@@ -83,7 +83,29 @@ func main() {
 		},
 	}
 
+	gcFlags := []cli.Flag{
+		&cli.BoolFlag{
+			Name:  "selfsigned",
+			Usage: "",
+			// Value: false,
+		},
+		&cli.StringFlag{
+			Name:  "hosts",
+			Usage: "Comma separated list of Alternative Names for certificate generation",
+			Value: "localhost",
+		},
+	}
+
 	app := &cli.App{
+		Commands: []*cli.Command{
+			{
+				Name:    "gen-cert",
+				Aliases: []string{"gc"},
+				Usage:   "Generate SSL certificate for the daemon.",
+				Flags:   gcFlags,
+				Action:  genCert(),
+			},
+		},
 		Before: func(ctx *cli.Context) error {
 			inputSource, err := altsrc.NewYamlSourceFromFlagFunc("config")(ctx)
 			if err != nil {
